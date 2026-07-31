@@ -1,6 +1,7 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import myImage from "../assets/v2.svg";
+import { solutionGroups, industryGroups, partnerGroups } from "../constant";
 
 // ─── Unique SVG Icons ──────────────────────────────────────────────────────────
 const SvgIcons = {
@@ -153,87 +154,6 @@ const SvgIcons = {
   ),
 };
 
-// ─── Data ──────────────────────────────────────────────────────────────────────
-const solutionGroups = [
-  {
-    label: "Infrastructure",
-    items: [
-      { name: "IT Infrastructure", href: "/solutions/it-infrastructure", desc: "Build robust enterprise infrastructure", iconKey: "infra" },
-      { name: "Networking Solutions", href: "/solutions/networking-solutions", desc: "Enterprise-grade network architecture", iconKey: "network" },
-      { name: "Cloud Solutions", href: "/solutions/clould-solutions", desc: "Scalable cloud infrastructure & services", iconKey: "cloud" },
-    ],
-  },
-  {
-    label: "Managed Services",
-    items: [
-      { name: "Managed IT Services", href: "/solutions/managed-it-services", desc: "Complete end-to-end IT support", iconKey: "managed" },
-      { name: "IT Consulting", href: "/solutions/it-consulting", desc: "Expert technology guidance & strategy", iconKey: "consulting" },
-      { name: "Device Deployment & MDM", href: "/solutions/device-deployment-mdm", desc: "Seamless device lifecycle management", iconKey: "device" },
-    ],
-  },
-  {
-    label: "Business Solutions",
-    items: [
-      { name: "HR Solutions", href: "/solutions/hr-solutions", desc: "Streamline your HR operations", iconKey: "hr" },
-      { name: "Payment Services", href: "/solutions/payment-services", desc: "Secure and reliable payment processing", iconKey: "payment" },
-
-    ],
-  },
-  {
-    label: "Specialty",
-    items: [
-      { name: "AV Solutions", href: "/solutions/av-solutions", desc: "Professional audio-visual systems", iconKey: "av" },
-      { name: "IT Asset Disposal", href: "/solutions/it-asset-disposal", desc: "Secure disposal & lifecycle mgmt", iconKey: "disposal" },
-    ],
-  },
-];
-
-const industryGroups = [
-  {
-    label: "Technology",
-    items: [
-      { name: "IT / ITES / Infrastructure", href: "/industries/it-ites-infra", desc: "Technology infrastructure management", iconKey: "it" },
-      { name: "AR / VR / MR / XR", href: "/industries/ar-vr-mr-xr", desc: "Immersive extended reality technology", iconKey: "xr" },
-    ],
-  },
-  {
-    label: "Creative & Public",
-    items: [
-      { name: "Media & Entertainment", href: "/industries/media-and-entertainment", desc: "Creative production & broadcast solutions", iconKey: "media" },
-      { name: "Government Sector", href: "/industries/government", desc: "Secure public sector IT solutions", iconKey: "govt" },
-    ],
-  },
-  {
-    label: "Industrial",
-    items: [
-      { name: "AEC", href: "/industries/aec", desc: "Architecture, Engineering & Construction", iconKey: "aec" },
-      { name: "Manufacturing & Automotive", href: "/industries/manufacturing-automotive", desc: "Industrial automation & IT solutions", iconKey: "mfg" },
-    ],
-  },
-  {
-    label: "Health & Education",
-    items: [
-      { name: "Healthcare & Pharma", href: "/industries/healthcare-pharma", desc: "Medical technology & compliance solutions", iconKey: "health" },
-      { name: "Education", href: "/industries/education", desc: "EdTech and digital learning solutions", iconKey: "edu" },
-    ],
-  },
-];
-
-const partnerGroups = [
-  {
-    label: "Hardware",
-    items: ["Apple", "Dell", "HP", "Lenovo", "Asus", "Acer", "Samsung"],
-  },
-  {
-    label: "Software & Cloud",
-    items: ["Microsoft", "Adobe", "Autodesk", "AWS","Azure", "Unity", "Unreal Engine"],
-  },
-  {
-    label: "Networking & Security",
-    items: ["Cisco", "Yubico", "JAMF", "Logitech", "Nvidia"],
-  },
-];
-
 // ─── Dropdown corner image paths — replace with your actual image URLs ─────────
 const DROPDOWN_CORNER_IMAGES = {
   solutions:  myImage,   // 🔁 replace with your path
@@ -272,7 +192,7 @@ const DropdownCornerImage = ({ src, alt = "" }) => (
   </div>
 );
 
-// ─── Icon Badge ────────────────────────────────────────────────────────────────
+// ─── Icon Badge ─── //
 const IconBadge = ({ iconKey }) => (
   <div style={{
     background: "linear-gradient(135deg, #2a2a2a 0%, #2a2a2a 100%)",
@@ -291,7 +211,7 @@ const IconBadge = ({ iconKey }) => (
   </div>
 );
 
-// ─── Category Header ───────────────────────────────────────────────────────────
+// ─── Category Header ─── //
 const CategoryLabel = ({ children }) => (
   <p style={{
     fontFamily: "'DM Sans', sans-serif",
@@ -307,7 +227,7 @@ const CategoryLabel = ({ children }) => (
   </p>
 );
 
-// ─── Menu Item with Icon ───────────────────────────────────────────────────────
+// ─── Menu Item with Icon ─── //
 const MenuItem = ({ href, iconKey, name, desc, onClick }) => {
   const [hovered, setHovered] = useState(false);
   return (
@@ -353,12 +273,12 @@ const MenuItem = ({ href, iconKey, name, desc, onClick }) => {
   );
 };
 
-// ─── Divider ───────────────────────────────────────────────────────────────────
+// ─── Divider ─── //
 const ColDivider = () => (
   <div style={{ width: "1px", background: "linear-gradient(to bottom, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent)", flexShrink: 0, alignSelf: "stretch" }} />
 );
 
-// ─── Nav Link / Trigger ────────────────────────────────────────────────────────
+// ─── Nav Link / Trigger ─── //
 const NavLink = ({ href, children, onClick }) => (
   <a href={href} onClick={onClick} style={{ fontFamily: "'DM Sans', sans-serif" }}
     className="px-4 py-2 text-[13.5px] font-medium tracking-wide text-gray-300 hover:text-white transition-colors duration-200">
@@ -389,8 +309,10 @@ const MegaPanel = ({ children, cornerImageSrc }) => (
   }}>
     <div style={{
       position: "relative",           // ← needed so the corner image positions correctly
-      background: "#111111",
-      border: "1px solid #242424",
+      background: "rgba(10, 10, 10, 0.65)",
+      backdropFilter: "blur(24px)",
+      WebkitBackdropFilter: "blur(24px)",
+      border: "1px solid rgba(255,255,255,0.08)",
       borderRadius: "16px",
       boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)",
       overflow: "hidden",
@@ -405,7 +327,7 @@ const MegaPanel = ({ children, cornerImageSrc }) => (
   </div>
 );
 
-// ─── Mobile Dropdown ───────────────────────────────────────────────────────────
+// ─── Mobile Dropdown ─── //
 const MobileDropdown = ({ label, items, isOpen, onToggle }) => (
   <div className="border-b border-gray-800">
     <button className="flex items-center justify-between w-full py-4 px-6 text-left text-sm font-semibold text-gray-200 hover:bg-gray-900 transition-colors"
@@ -430,7 +352,7 @@ const MobileDropdown = ({ label, items, isOpen, onToggle }) => (
   </div>
 );
 
-// ─── Main Navbar ───────────────────────────────────────────────────────────────
+// ─── Main Navbar ─── //
 export const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -478,7 +400,7 @@ export const Navbar = () => {
       `}</style>
 
       {/* ── Top Bar ── */}
-      <div className="hidden md:block bg-gradient-to-r from-white via-stone-50 to-white text-stone-800 py-2.5 text-sm border-b border-stone-200">
+      <div className="hidden md:block bg-gradient-to-r from-white to-stone-100 text-stone-800 py-2.5 text-sm border-b border-stone-200">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-8">
             <a href="tel:+918939301100" className="flex items-center gap-2 hover:text-stone-600 transition-colors group" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -505,7 +427,7 @@ export const Navbar = () => {
 
       {/* ── Main Nav ── */}
       <nav ref={navRef}
-        className={`sticky top-0 z-50 transition-all duration-300 border-b border-gray-900 ${scrolled ? "bg-black shadow-2xl" : "bg-black"}`}>
+        className={`sticky top-0 z-50 transition-all duration-300 border-b border-white/10 ${scrolled ? "bg-black/60 backdrop-blur-xl shadow-2xl" : "bg-black/30 backdrop-blur-md"}`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
 
@@ -567,7 +489,8 @@ export const Navbar = () => {
               ))}
             </div>
             {/* Bottom bar */}
-            <div style={{ borderTop: "1px solid #1e1e1e", padding: "12px 32px", background: "#0d0d0d", display: "flex", alignItems: "center", gap: "8px" }}>
+            <div style={{ borderTop: "1px solid #1e1e1e", padding: "12px 32px", background: "rgba(0,0,0,0.3)",
+backdropFilter: "blur(12px)", display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#6b7280" }}>
                 Explore the right solution for your business.
               </span>
@@ -658,7 +581,7 @@ export const Navbar = () => {
         {mobileMenuOpen && (
           <>
             <div className="lg:hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-40 top-16" onClick={() => setMobileMenuOpen(false)} />
-            <div className="lg:hidden fixed top-16 left-0 right-0 bg-black border-t border-gray-800 z-50 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <div className="lg:hidden fixed top-16 left-0 right-0 bg-black/70 backdrop-blur-xl border-t border-white/10 z-50 max-h-[calc(100vh-4rem)] overflow-y-auto">
               {[{ href: "/", label: "Home" }, { href: "/about", label: "About Us" }].map(({ href, label }) => (
                 <a key={href} href={href} onClick={() => setMobileMenuOpen(false)}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -674,7 +597,7 @@ export const Navbar = () => {
                 className="block py-4 px-6 text-sm font-medium text-gray-200 hover:bg-gray-900 border-b border-gray-800 transition-colors">
                 Blog
               </a>
-              <div className="p-5 border-t border-gray-800 bg-gray-950">
+              <div className="p-5 border-t border-white/10 bg-black/40 backdrop-blur-md">
                 <a href="/contact" onClick={() => setMobileMenuOpen(false)}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                   className="block w-full py-3.5 px-4 text-center text-sm font-semibold text-white bg-gray-800 hover:bg-gray-700 rounded-xl transition-all border border-gray-700 active:scale-95">

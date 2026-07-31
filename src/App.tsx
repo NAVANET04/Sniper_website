@@ -5,14 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import React, { Suspense } from "react";
-// Pages
-const Index = React.lazy(() => import("./pages/Index"));
-
-
-const About = React.lazy(() => import("./pages/About"));
-const Blog = React.lazy(() => import("./pages/Blog"));
-const Contact = React.lazy(() => import("./pages/Contact"));
-const Careers = React.lazy(() => import("./pages/Careers"));
+import useLenis from "./hooks/useLenis";
+import GradualBlur from "./components/ui/GradualBlur";
 
 
 import NotFound from "./pages/NotFound";
@@ -31,7 +25,6 @@ import ManagedITServices from "./pages/solutions/ManagedITServices";
 import PaymentServices from "./pages/solutions/PaymentServices";
 import ITInfrastructure from "./pages/solutions/ITInfrastructure";
 import NetworkingSolutions from "./pages/solutions/NetworkingSolutions";
-
 
 // Partners
 import Partners from "./pages/partners/Partners";
@@ -55,11 +48,6 @@ import Acer from "./pages/partners/Acer";
 import AWS from "./pages/partners/AWS";
 import Azure from "./pages/partners/Azure";
 
-
-//  <Route path="/about" element={<About />} />
-
-
-
 // Industries
 import Industries from "./pages/industries/Industries";
 import AEC from "./pages/industries/AEC";
@@ -71,10 +59,18 @@ import HealthcarePharma from "./pages/industries/HealthcarePharma";
 import ManufacturingAutomotive from "./pages/industries/ManufacturingAutomotive";
 import Education from "./pages/industries/Education";
 
+// Pages
+const Index = React.lazy(() => import("./pages/Index"));
+const About = React.lazy(() => import("./pages/About"));
+const Blog = React.lazy(() => import("./pages/Blog"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Careers = React.lazy(() => import("./pages/Careers"));
+
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+const App = () => {
+  //  useLenis();
+   return(<QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -88,7 +84,6 @@ const App = () => (
 
             {/* Redirect old URL */}
             <Route path="/about-us" element={<Navigate to="/about" replace />} />
-
 
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
@@ -143,17 +138,23 @@ const App = () => (
             <Route path="/industries/manufacturing-automotive" element={<ManufacturingAutomotive />} />
             <Route path="/industries/Education" element={<Education />} />
 
-
-
-
-
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+         <GradualBlur
+              target="page"
+              position="bottom"
+              height="4rem"
+              strength={2}
+              divCount={5}
+              curve="bezier"
+              exponential
+              opacity={1}
+            />    
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
-);
+  </QueryClientProvider>);
+};
 
 export default App;

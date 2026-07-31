@@ -1,11 +1,15 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
+
 
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -40,6 +44,7 @@
     --brand-gray: 220 14% 96%;
     --brand-dark: 222 47% 8%;
   }
+  
 
   .dark {
     --background: 222 47% 8%;
@@ -71,6 +76,10 @@
     --ring: 357 82% 49%;
   }
 }
+@theme {
+  --font-figtree: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
 
 @layer base {
   * {
@@ -78,12 +87,9 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    
+    background-color: black;
+    font-family: "Figtree", ui-sans-serif, system-ui, sans-serif;
   }
 }
 
@@ -158,6 +164,7 @@
     transform: translateY(0);
   }
 }
+
 
 .animate-slideDown {
   animation: slideDown 0.5s ease-in-out forwards;

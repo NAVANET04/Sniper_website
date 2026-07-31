@@ -60,6 +60,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        'btn-bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-4px)' },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -84,7 +88,8 @@ export default {
         "slide-in-right": "slide-in-right 0.5s ease-out forwards",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+         sans: ['Figtree', 'sans-serif'],                              // default — body copy
+      
       },
     },
   },
