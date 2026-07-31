@@ -232,7 +232,7 @@ export const Footer = () => {
   </span>
 </a>
 
-            {/* Contact Section */}
+{/* Contact Section */}
 <div className="mt-14">
   <h3 className="text-lg font-medium text-stone-900 mb-6">
     Contact Us
@@ -356,159 +356,13 @@ export const Footer = () => {
       OUR PRESENCE
 =========================================== */}
 
-<div className="relative mt-12 mb-14">
-{/* Desktop  */}
-  <div className="relative overflow-hidden rounded-[30px] border border-stone-200 bg-white px-8 py-8 shadow-sm md:block hidden">
-
-    {/* Background World Map */}
-    <div
-      className="
-        absolute
-        inset-y-0
-        right-0
-        w-[55%]
-        pointer-events-none
-        select-none
-      "
-      style={{
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 15%, rgba(0,0,0,.55) 35%, black 70%)",
-        maskImage:
-          "linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 15%, rgba(0,0,0,.55) 35%, black 70%)",
-      }}
-    >
-      <img
-        src={footermap}
-        alt="Global Presence"
-        className="
-          h-full
-          w-full
-          object-cover
-          opacity-20
-          grayscale
-        "
-      />
-    </div>
-
-    {/* Content */}
-
-    <div className="relative z-20 flex items-center justify-between">
-
-      {/* Left */}
-
-      <div className="relative z-20 w-full">
-
-        {/* Logo */}
-
-        <img
-          src={imgSrcc}
-          alt="Sniper Logo"
-          className="h-14 w-auto object-contain"
-        />
-
-        {/* Heading */}
-
-        <div className="mt-5 flex items-start gap-4">
-
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-stone-100">
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5 text-red-500"
-            >
-              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-
-          </div>
-
-          <div>
-
-            <h3 className="text-lg font-semibold text-stone-900">
-              Our Presence
-            </h3>
-
-            <p className="mt-1 text-sm text-stone-500">
-              Serving businesses across India
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* Locations */}
-
-        <div className="mt-7 flex flex-wrap gap-3">
-
-          {locations.map((city) => (
-
-            <button
-              key={city}
-              className="
-                rounded-full
-                border
-                border-stone-300
-                bg-white
-                px-4
-                py-1.5
-                text-xs
-                font-medium
-                text-stone-700
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:border-red-500
-                hover:bg-red-500
-                hover:text-white
-                hover:shadow-md
-              "
-            >
-              {city}
-            </button>
-
-          ))}
-
-        </div>
-
-      </div>
-
-      {/* Scroll */}
-
-      <button
-        onClick={() =>
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          })
-        }
-        className="
-          group
-          hidden
-          lg:flex
-          h-12
-          w-12
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-stone-300
-          bg-white/90
-          backdrop-blur-md
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:bg-red-500
-          hover:border-red-500
-          hover:shadow-lg
-        "
-      >
-
+<div className="relative mt-12 mb-14 overflow-hidden rounded-[28px] border border-stone-200 bg-white px-6 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-8">
+ 
+  <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10">
+ 
+    {/* Heading */}
+    <div className="flex items-start gap-4 lg:w-[240px] lg:shrink-0">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-stone-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -517,194 +371,89 @@ export const Footer = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="
-            h-5
-            w-5
-            text-stone-700
-            transition-all
-            duration-300
-            group-hover:text-white
-            group-hover:-translate-y-1
-          "
+          className="h-5 w-5 text-red-500"
         >
-          <path d="m18 15-6-6-6 6" />
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
         </svg>
-
-      </button>
-
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold text-stone-900">Nationwide Reach</h3>
+        <p className="mt-1 text-sm text-stone-500">
+          {locations.length} cities across India
+        </p>
+      </div>
     </div>
-
-  </div>
-  {/* ===========================
-        Mobile Presence Card
-=========================== */}
-
-<div className="md:hidden mt-10 mb-12">
-
-  <div className="relative overflow-hidden rounded-[28px] border border-stone-200 bg-white px-5 py-6 shadow-sm">
-
-    {/* Decorative Map */}
-    <img
-      src={footermap}
-      alt=""
-      className="
-        absolute
-        right-0
-        top-0
-        h-full
-        w-[65%]
-        object-cover
-        opacity-[0.05]
-        grayscale
-        pointer-events-none
-        select-none
-      "
-      style={{
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 25%, black 100%)",
-        maskImage:
-          "linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 25%, black 100%)",
-      }}
-    />
-
-    <div className="relative z-10">
-
-      {/* Logo */}
-
-      <img
-        src={imgSrcc}
-        alt="Sniper"
-        className="h-11 w-auto mx-auto"
-      />
-
-      <div className="mx-auto mt-4 h-[3px] w-10 rounded-full bg-red-500" />
-
-      {/* Heading */}
-
-      <div className="mt-6 flex items-center gap-3">
-
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-100">
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-5 w-5 text-red-500"
-          >
-            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-
-        </div>
-
-        <div>
-
-          <h3 className="text-lg font-semibold text-stone-900">
-            Our Presence
-          </h3>
-
-          <p className="text-sm text-stone-500">
-            Serving businesses across India
-          </p>
-
-        </div>
-
-      </div>
-
-      {/* Divider */}
-
-      <div className="mt-5 h-px bg-stone-200" />
-
-      {/* Locations */}
-
-      <div className="mt-5 flex flex-wrap gap-2">
-
-        {locations.map((city) => (
-
-          <span
-            key={city}
-            className="
-              rounded-full
-              border
-              border-stone-300
-              bg-white
-              px-3
-              py-1.5
-              text-xs
-              font-medium
-              text-stone-700
-            "
-          >
-            {city}
-          </span>
-
-        ))}
-
-      </div>
-
-      {/* Scroll */}
-
-      <div className="mt-8 flex justify-center">
-
-        <button
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            })
-          }
-          className="
-            group
-            flex
-            h-11
-            w-11
-            items-center
-            justify-center
-            rounded-full
-            border
-            border-stone-300
-            bg-white
-            shadow-sm
-            transition-all
-            duration-300
-            hover:bg-red-500
-            hover:border-red-500
-          "
-        >
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="
-              h-5
-              w-5
-              text-stone-700
-              group-hover:text-white
-            "
-          >
-            <path d="m18 15-6-6-6 6"/>
-          </svg>
-
-        </button>
-
-      </div>
-
-    </div>
-
+ 
+    {/* Network line of cities */}
+    <div className="min-w-0 flex-1">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+      Locations
+    </span>
   </div>
 
+  <div
+    className="flex snap-x snap-mandatory items-center gap-x-6 gap-y-3 overflow-x-auto whitespace-nowrap pb-1 lg:flex-wrap lg:overflow-visible lg:whitespace-normal [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+  >
+    {locations.map((city, i) => (
+      <div key={city} className="group flex shrink-0 snap-start items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-stone-300 transition-colors duration-300 group-hover:bg-stone-500" />
+        <span className="text-sm font-medium text-stone-600 transition-colors duration-300 group-hover:text-stone-900">
+          {city}
+        </span>
+        {i < locations.length - 1 && (
+          <span className="ml-4 hidden h-px w-6 bg-stone-200 lg:inline-block" />
+        )}
+      </div>
+    ))}
+  </div>
 </div>
-
+ 
+    {/* Scroll to top — desktop */}
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Scroll to top"
+      className="group hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:shadow-md lg:flex"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-5 w-5 text-stone-700 transition-colors duration-300 group-hover:text-white"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
+  </div>
+ 
+  {/* Scroll to top — mobile / tablet */}
+  <div className="mt-7 flex justify-center lg:hidden">
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Scroll to top"
+      className="group flex h-11 w-11 items-center justify-center rounded-full border border-stone-300 bg-white shadow-sm transition-all duration-300 hover:border-red-500 hover:bg-red-500"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-5 w-5 text-stone-700 transition-colors duration-300 group-hover:text-white"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
+  </div>
 </div>
+ 
 
         {/* Bottom Section */}
         <div className="border-t border-stone-200 pt-6">
